@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Portal - DHDPM</title>
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    body { background: var(--bg-primary); display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .portal-card { background: white; padding: 2.5rem; border-radius: 12px; width: 500px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+    .form-group { margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    input { padding: 0.8rem; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 1rem; }
+    .btn-search { width: 100%; padding: 0.85rem; background: var(--color-primary); color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .history-card { background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid var(--color-primary); }
+  </style>
+</head>
+<body>
+  <div class="portal-card">
+    <h2>Patient History Lookup</h2>
+    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">የታካሚ የሕክምና ታሪክ መመልከቻ</p>
+
+    <div class="form-group">
+      <label>Enter Patient ID / የታካሚ መለያ ቁጥር</label>
+      <input type="text" id="patientSearchId" placeholder="e.g. PT-1001">
+    </div>
+    <button class="btn-search" onclick="fetchPatientHistory()">View Medical Records / ታሪክ ተመልከት</button>
+
+    <div id="historyResult" style="margin-top: 1.5rem; display: none;">
+      <h3 id="patientNameTitle"></h3>
+      <div id="recordsList"></div>
+    </div>
+  </div>
+
+  <script>
+    async function fetchPatientHistory() {
+      const patientId = document.getElementById('patientSearchId').value;
+      if (!patientId) return alert("Please enter a Patient ID");
+
+      try {
+        const res = await fetch('http://127.0.0.1:8000/api/patient/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ patient_id: patientId })
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail);
+
+        document.getElementById('patientNameTitle').innerText = ${data.patient.full_name} (${data.patient.patient_id});
+        const list = document.getElementById('recordsList');
+        list.innerHTML = '';
+
+        data.patient.history.forEach(rec => {
+          list.innerHTML += 
+            <div class="history-card">
+              <strong>Date: ${rec.date}</strong>
+              <div>Risk Score: ${rec.risk_score} (${rec.status})</div>
+            </div>
+          ;
+        });
+
+        document.getElementById('historyResult').style.display = 'block';
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+  </script>
+</body>
+</html>

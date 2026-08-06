@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Risk Assessment - DHDPM</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand-header">
+      <img src="images/logo.jpg" alt="cardio AI logo" class="brand-img-logo">
+      <div class="brand-text">
+        <h2>Dagi HDPM</h2>
+        <span>cardio-predictive AI</span>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="screening.html" class="nav-item active">
+        <div>
+          <span class="nav-title">Assessment</span>
+          <span class="nav-subtitle">Patient Risk Assessment </span>
+        </div>
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <div>
+          <span class="nav-title">Patient History</span>
+          <span class="nav-subtitle">View past assessments</span>
+        </div>
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <div>
+          <span class="nav-title">Analytics</span>
+          <span class="nav-subtitle">Performance insights</span>
+        </div>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="security-badge">
+        <strong>✓ Secure & Compliant</strong>
+        Your data is encrypted and protected with industry standards.
+      </div>
+      <a href="login.html" class="logout-btn">
+        <span>↳</span> Logout
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrapper">
+    
+    <!-- TOP HEADER -->
+    <header class="top-header">
+      <div class="header-icon">🔔</div>
+      <div class="header-icon">?</div>
+      <div class="user-profile">
+        <div class="avatar">D</div>
+        <div class="user-info">
+          <h4>Dr. Dagim</h4>
+          <p>Cardiologist</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT AREA (Keep wizard inside here) -->
+    <main class="content-body">
+      <div class="page-header">
+        <h1>Patient Risk Assessment</h1>
+        <p>Step-by-step clinical decision pipeline.</p>
+      </div>
+
+      <!-- YOUR CENTER WIZARD CARD -->
+      <div class="card">
+        <div class="stepper-bar">
+          <div class="step-indicator active" id="indicator1">
+            <div class="step-circle">1</div>
+            <span>Patient Information</span>
+          </div>
+          <div class="step-indicator" id="indicator2">
+            <div class="step-circle">2</div>
+            <span>Clinical Parameters</span>
+          </div>
+          <div class="step-indicator" id="indicator3">
+            <div class="step-circle">3</div>
+            <span>Review & Predict</span>
+          </div>
+        </div>
+
+        <form id="clinicalForm">
+          <!-- STEP 1: DEMOGRAPHICS -->
+          <div class="wizard-step active" id="step1">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Patient ID</label>
+                <input type="text" id="patientId" readonly>
+              </div>
+              <div class="form-group">
+                <label>Age (years)</label>
+                <input type="number" id="age" placeholder="54" required>
+              </div>
+              <div class="form-group">
+                <label>Sex</label>
+                <select id="sex">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Residence Context</label>
+                <select id="residence">
+                  <option value="Rural">Rural</option>
+                  <option value="Urban">Urban</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Height (cm)</label>
+                <input type="number" id="height" placeholder="e.g. 170">
+              </div>
+              <div class="form-group">
+                <label>Weight (kg)</label>
+                <input type="number" id="weight" placeholder="e.g. 70">
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: CLINICAL PARAMETERS -->
+          <div class="wizard-step" id="step2">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Resting Blood Pressure (mmHg)</label>
+                <input type="number" id="systolicBP" placeholder="145">
+              </div>
+              <div class="form-group">
+                <label>Diastolic Blood Pressure (mmHg)</label>
+                <input type="number" id="diastolicBP" placeholder="85">
+              </div>
+              <div class="form-group">
+                <label>Heart Rate (BPM)</label>
+                <input type="number" id="heartRate" placeholder="142">
+              </div>
+              <div class="form-group">
+                <label>Heart Murmur Present?</label>
+                <select id="heartMurmur">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>History of Rheumatic Fever?</label>
+                <select id="previousRheumaticFever">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Recurrent Sore Throat History?</label>
+                <select id="recurrentSoreThroat">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: REVIEW -->
+          <div class="wizard-step" id="step3">
+            <div class="review-grid">
+              <div class="review-item">
+                <span>Patient ID</span>
+                <strong id="revId">--</strong>
+              </div>
+              <div class="review-item">
+                <span>Age / Sex</span>
+                <strong id="revAgeSex">--</strong>
+              </div>
+              <div class="review-item">
+                <span>Blood Pressure</span>
+                <strong id="revBP">--</strong>
+              </div>
+              <div class="review-item">
+                <span>Heart Murmur</span>
+                <strong id="revMurmur">--</strong>
+              </div>
+              <div class="review-item">
+                <span>Rheumatic Fever History</span>
+                <strong id="revRheumatic">--</strong>
+              </div>
+              <div class="review-item">
+                <span>Recurrent Sore Throat</span>
+                <strong id="revSoreThroat">--</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Controls -->
+          <div class="wizard-actions">
+            <button type="button" class="btn btn-secondary" id="backBtn" style="visibility: hidden;">Back</button>
+            <button type="button" class="btn btn-primary" id="nextBtn">Next →</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <div>© 2026 DHDPM cardio-predictive AI. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/wizard.js"></script>
+</body>
+</html>

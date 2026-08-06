@@ -1,0 +1,142 @@
+/* Card Container */
+.card {
+  background-color: var(--bg-surface);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  max-width: 850px;
+}
+
+/* Stepper Indicator */
+.stepper-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.step-indicator.active {
+  color: var(--color-primary-dark);
+  opacity: 1;
+}
+
+.step-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.step-indicator.active .step-circle {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+}
+
+/* Form Visibility Controls */
+.wizard-step {
+  display: none;
+}
+
+.wizard-step.active {
+  display: block;
+}
+
+/* Form Controls */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-primary);
+}
+
+/* Review Table */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  background: var(--bg-secondary);
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+}
+
+.review-item span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.review-item strong {
+  font-size: 1rem;
+  color: var(--bg-primary);
+}
+
+/* Actions */
+.wizard-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #E2E8F0;
+  color: var(--text-main);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
