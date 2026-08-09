@@ -11,6 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     name = rawName.replace(/\b\w/g, l => l.toUpperCase());
   }
 
+  // heloooooooo
   // Store Session in LocalStorage
   const session = {
     name: name.includes("Dr") ? name : `Dr. ${name}`,
