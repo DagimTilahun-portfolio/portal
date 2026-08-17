@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Login - DHDPM Cardio-AI</title>
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    body {
+      background-color: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .auth-container {
+      display: flex;
+      width: 900px;
+      max-width: 95%;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Left Hero Image Panel */
+    .auth-hero {
+      flex: 1;
+      position: relative;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .auth-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.85;
+    }
+
+    .auth-hero-overlay {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(3, 27, 51, 0.95), transparent);
+      color: white;
+    }
+
+    .auth-hero-overlay h3 {
+      color: var(--color-primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Right Form Panel */
+    .auth-form-card {
+      flex: 1;
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .auth-header {
+      margin-bottom: 2rem;
+    }
+
+    .auth-header h2 {
+      color: var(--bg-primary);
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .auth-header p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .form-group input, .form-group select {
+      padding: 0.8rem;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--color-primary);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 0.85rem;
+      background-color: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+
+    .btn-login:hover {
+      background-color: var(--color-primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-container">
+    <!-- LEFT HERO PANEL -->
+    <div class="auth-hero">
+      <img src="images/hero-heart.jpg" alt="Cardio AI Banner">
+      <div class="auth-hero-overlay">
+        <h3>AI FOR HEART HEALTH</h3>
+        <p style="font-size: 0.8rem; color: #94A3B8;">Building Trustworthy, Accessible Cardiovascular AI for Ethiopian Healthcare Settings.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT LOGIN FORM -->
+    <div class="auth-form-card">
+      <div class="auth-header">
+        <h2>Clinician Portal Sign In</h2>
+        <p>የሕክምና ባለሙያ መግቢያ portal</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Clinician ID or Email / የመለያ ቁጥር</label>
+          <input type="text" id="clinicianId" placeholder="e.g. dr.dagim@clinic.et" value="dr.dagim@clinic.et" required>
+        </div>
+
+        <div class="form-group">
+          <label>Clinical Role / የሥራ ድርሻ</label>
+          <select id="clinicianRole">
+            <option value="Cardiologist">Cardiologist / የልብ ሕክምና ስፔሻሊስት</option>
+            <option value="General Practitioner">General Practitioner / ጠቅላላ ሐኪም</option>
+            <option value="Health Extension Worker">Health Extension Worker / የጤና ኤክስቴንሽን ባለሙያ</option>
+          </select>
+        </div>
+<div class="form-group">
+          <label>Password / የይለፍ ቃል</label>
+          <input type="password" id="password" value="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn-login">Sign In / ይግቡ →</button>
+         <button class="btn-login"><a href="signup.html"> Create new account →</a></button>
+      </form>
+    </div>
+  </div>
+
+
+<!--<button type="submit" class="btn-login">Sign In / ይግቡ →</button>
+         <button class="btn-login"><a href="signup.html"> Create new account →</a></button>
+      </form>
+    </div>
+  </div>
+-->
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
